@@ -1,18 +1,32 @@
-var noteData = require("../db/db.json");
+var noteData = require('../db/db.json');
 
 module.exports = function (app) {
 
-    app.get("/api/notes", function(req, res) {
-        res.json(noteData);
-      });
+     app.get('/api/notes', function(req, res) {
+         res.json(noteData);
+       });
 
     app.post('/api/notes', function(req,res)  {
-        res.json(noteData);
+        noteData.push(req.body);
+        res.json(true);
     });
 
-    app.post('/api/clear', function(req, res) {
-        //Deleting the selected note
-        
+    app.delete('/api/notes/:id', function(req,res)  {
+        var deleteID = {_id:req.params.id}
+        console.log(deleteID);
+
+        let note = noteData.filter(note => {
+            return note.id == deleteID;
+        })[0];
+
+        const index = noteData.indexOf(note);
+
+        noteData.splice(index, 1);
+
+        res.json(true);
+
     });
+               
+
 
 }
