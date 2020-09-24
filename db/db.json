@@ -1,10 +1,6 @@
 [
     
-    {"title":"Test Title","text":"Test text", "id": "Test ID"},
-
-    {"title":"Test Title","text":"Test text", "id": "Test ID1"},
-
-    {"title":"Test Title","text":"Test text", "id": "Test ID2"}
+    {"title":"First Note","text":  "This is your first note that you can delete", "id": "Test ID"}
 
 
 ]
