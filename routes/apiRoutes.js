@@ -13,20 +13,12 @@ module.exports = function (app) {
 
     app.delete('/api/notes/:id', function(req,res)  {
         var deleteID = req.params.id
-        console.log(deleteID);
-
         let note = noteData.filter(note => {
             return note.id == deleteID;
         })[0];
-
         const index = noteData.indexOf(note);
-
-        console.log(index, note);
-
         noteData.splice(index, 1);
-
         res.json(true);
-
     });
                
 
